@@ -41,10 +41,11 @@ var DFS = function (problem) {
 		generated: 0,     // número de nós gerados
 		expanded: 0,      // número de nós expandidos
 		ramification: 0   // fator de ramificação médio
-	} , stack , node , actions , next , init
+	} , stack , node , actions , next , init , visited
 
 	// Implemente a busca em profundidade com busca em grafo
 	init = new Node( null , null , problem.initialState , 0 , null , null )
+	visited = new Set()
 	stack = new Stack()
 	stack.push( init )
 	while( !stack.empty() ){
@@ -56,11 +57,14 @@ var DFS = function (problem) {
 		}
 		actions = problem.Actions( node.state )
 		actions.forEach( function( act ){
-			next = new Node( act , node , problem.Result( node.state , act ) , node.depth + problem.StepCost( node.state , act ) , null , null )
-
-			result.generated += 1
-			result.ramification += 1
-			stack.push( next )
+			var state = problem.Result( node.state , act )
+			var depth = node.depth + problem.StepCost( node.state , act )
+			if( !visited.hasElement( state ) ){
+				next = new Node( act , node , state , depth , null , null )
+				result.generated += 1
+				result.ramification += 1
+				stack.push( next )
+			}
 		} )
 	}
 	result.ramification = result.expanded / result.generated
