@@ -92,6 +92,10 @@ var goal = (function () {
 		var b =  1.5, lines   = completeLines(board, tetromino);
 		var c = -0.4, holes   = emptyHoles(board, tetromino);
 		var d = -0.2, bumps   = bumpiness(board, tetromino);
+//		var a = -0.510066, heights = aggregateHeight(board, tetromino);
+//		var b =  0.760666, lines   = completeLines(board, tetromino);
+//		var c = -0.35663, holes   = emptyHoles(board, tetromino);
+//		var d = -0.184483, bumps   = bumpiness(board, tetromino);
 
 		var score = a*heights + b*lines + c*holes + d*bumps;
 		return score;
