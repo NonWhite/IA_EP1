@@ -127,7 +127,8 @@ var manhattanDistance = function ( s1 , s2 ){
 var manhattanDistanceAdmissible = function (s1, s2) {
 	// Modifique o cálculo da distância de manhattan para tornar a heurística admissível
 	var X = Math.abs( s1.tetromino.xpos - s2.tetromino.xpos )
-	return X + 1
+	var Y = Math.abs( s1.tetromino.ypos - s2.tetromino.ypos )
+	return X + ( Y > 0 ? 1 : 0 )
 } ;
 
 
