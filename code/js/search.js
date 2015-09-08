@@ -1,4 +1,8 @@
 "use strict";
+/*
+ * Nome: Walter Perez Urcia
+ * N USP: 9410313
+*/
 
 // ---------------------------------------------------------------------------
 // Nós da busca (Search nodes)
@@ -67,7 +71,7 @@ var DFS = function (problem) {
 			}
 		} )
 	}
-	result.ramification = result.expanded / result.generated
+	result.ramification = result.generated / result.expanded
 	return result ;
 } ;
 
@@ -109,7 +113,7 @@ var BFS = function (problem) {
 			}
 		} )
 	}
-	result.ramification = result.expanded / result.generated
+	result.ramification = result.generated / result.expanded
 	return result ; // retorna falha se não encontrou solução
 };
 
@@ -177,7 +181,7 @@ var BestFS = function (problem) {
 			}
 		} )
 	}
-	result.ramification = result.expanded / result.generated
+	result.ramification = result.generated / result.expanded
 
 	return result; // retorna falha se não encontrou solução
 };
@@ -232,7 +236,7 @@ var ASTAR = function (problem) {
 			}
 		} )
 	}
-	result.ramification = result.expanded / result.generated
+	result.ramification = result.generated / result.expanded
 
 	return result; // retorna falha se não encontrou solução
 };
